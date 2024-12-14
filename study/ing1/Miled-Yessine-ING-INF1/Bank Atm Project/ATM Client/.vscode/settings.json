@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\jcdk\\java_card_kit-2_2_2\\lib\\apduio.jar"
+    ]
+}
