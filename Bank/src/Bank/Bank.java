@@ -111,7 +111,13 @@ public class Bank extends Applet implements PIN {
 	public boolean check(byte[] pinAttempt, short offset, byte length)
 			throws ArrayIndexOutOfBoundsException, NullPointerException {
 		// TODO Auto-generated method stub
-		return pin.check(pinAttempt, offset, length);
+		try {
+			return pin.check(pinAttempt, offset, length);
+			
+		} catch (Exception e) {
+			return false;
+			// TODO: handle exception
+		}
 	}
 
 	public byte getTriesRemaining() {

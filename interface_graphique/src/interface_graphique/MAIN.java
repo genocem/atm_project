@@ -311,140 +311,179 @@ public class MAIN implements ActionListener{
 
 	public void WrongInput() {
 
-		JPanel panel = new JPanel();
-		panel.setLayout(null);
-		JLabel lblNewLabel = new JLabel("Wrong Input !");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 33));
-		lblNewLabel.setForeground(new Color(4, 109, 181));
-		lblNewLabel.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-		lblNewLabel.setIcon(new ImageIcon("C:\\\\Users\\\\nours\\\\eclipse-workspace\\\\interface_graphique\\\\src\\\\interface_graphique\\\\x-circle.png"));
-		lblNewLabel.setBounds(54, 193, 324, 96);
-		panel.add(lblNewLabel);
+		    // Main panel with BorderLayout
+		    JPanel panel = new JPanel(new BorderLayout());
+		    panel.setBackground(Color.WHITE);
 
-		WrongInput_Retry = new JButton(" Retry ");
-		WrongInput_Retry.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		WrongInput_Retry.setForeground(new Color(0, 168, 222));
-		WrongInput_Retry.setIcon(new ImageIcon("C:\\\\Users\\\\nours\\\\eclipse-workspace\\\\interface_graphique\\\\src\\\\interface_graphique\\\\reload.png"));
-		WrongInput_Retry.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		WrongInput_Retry.setBounds(23, 339, 195, 57);
-		panel.add(WrongInput_Retry);
-		WrongInput_Retry.addActionListener(this);
+		    // Inner panel for content alignment using GridBagLayout
+		    JPanel innerPanel = new JPanel(new GridBagLayout());
+		    innerPanel.setOpaque(false); // Transparent for background visibility
+		    GridBagConstraints gbc = new GridBagConstraints();
+		    gbc.insets = new Insets(10, 10, 10, 10);
+		    gbc.fill = GridBagConstraints.HORIZONTAL;
 
-		WrongInput_Exit = new JButton("Exit ");
-		WrongInput_Exit.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-		WrongInput_Exit.setForeground(new Color(0, 168, 222));
-		WrongInput_Exit.setIcon(new ImageIcon("C:\\\\Users\\\\nours\\\\eclipse-workspace\\\\interface_graphique\\\\src\\\\interface_graphique\\\\exit.png"));
-		WrongInput_Exit.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		WrongInput_Exit.setBounds(296, 339, 160, 57);
-		panel.add(WrongInput_Exit);
-		WrongInput_Exit.addActionListener(this);
+		    // Title label for error message
+			JLabel lblNewLabel = new JLabel("Wrong Input!");
+			lblNewLabel.setForeground(new Color(0, 0, 0));
+			lblNewLabel.setOpaque(true);
+			lblNewLabel.setBackground(new Color(208, 232, 252));
+			lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+			lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/alert-octagon.png"))); // Corrected image path
+			gbc.gridx = 0;
+			gbc.gridy = 0;
+			gbc.gridwidth = 2;
+			innerPanel.add(lblNewLabel, gbc);
 
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\\\Users\\\\nours\\\\eclipse-workspace\\\\interface_graphique\\\\src\\\\interface_graphique\\\\Cash.jpg"));
-		lblNewLabel_1.setBounds(0, 0, 500, 500);
-		panel.add(lblNewLabel_1);
+		    // Retry button
+		    Retry_Wrong_Code = new JButton("Retry");
+		    Retry_Wrong_Code.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		    Retry_Wrong_Code.setForeground(new Color(0, 168, 222));
+		    Retry_Wrong_Code.setBackground(Color.WHITE);
+		    Retry_Wrong_Code.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/reload.png")));
+		    Retry_Wrong_Code.addActionListener(this);
+		    gbc.gridx = 0;
+		    gbc.gridy = 1;
+		    gbc.gridwidth = 1; // Single column
+		    innerPanel.add(Retry_Wrong_Code, gbc);
 
-		panel.setVisible(true);
-		frmMyBank.add(panel);
-		frmMyBank.setContentPane(panel);
+		    // Exit button
+		    Exit_Wrong_Code = new JButton("Exit");
+		    Exit_Wrong_Code.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		    Exit_Wrong_Code.setForeground(Color.WHITE);
+		    Exit_Wrong_Code.setBackground(new Color(220, 53, 69)); // Red background
+		    Exit_Wrong_Code.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/exit.png")));
+		    Exit_Wrong_Code.addActionListener(this);
+		    gbc.gridx = 1;
+		    gbc.gridy = 1;
+		    innerPanel.add(Exit_Wrong_Code, gbc);
 
-		frmMyBank.validate();
-		frmMyBank.repaint();
-	}
+		    // Background image
+		    JLabel background = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/background2.jpg")));
+		    background.setLayout(new BorderLayout()); // Allow adding innerPanel centrally
+		    background.add(innerPanel, BorderLayout.CENTER);
+
+		    // Setting the main panel and refreshing the frame
+		    frmMyBank.setContentPane(background);
+		    frmMyBank.validate();
+		    frmMyBank.repaint();
+		}
+	
 	public void WrongInputCode() {
 
-		panel = new JPanel();
-		panel.setLayout(null);
+		JPanel panel = new JPanel(new BorderLayout());
+	    panel.setBackground(Color.WHITE);
+
+	    // Inner panel for content alignment using GridBagLayout
+	    JPanel innerPanel = new JPanel(new GridBagLayout());
+	    innerPanel.setOpaque(false); // Transparent for background visibility
+	    GridBagConstraints gbc = new GridBagConstraints();
+	    gbc.insets = new Insets(10, 10, 10, 10);
+	    gbc.fill = GridBagConstraints.HORIZONTAL;
+
+	    // Title label for error message
 		JLabel lblNewLabel = new JLabel("Wrong Input !");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 33));
-		lblNewLabel.setForeground(new Color(4, 109, 181));
-
-		lblNewLabel.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-		lblNewLabel.setIcon(new ImageIcon("/interface_graphique/x-circle.png"));
-		lblNewLabel.setBounds(54, 193, 324, 96);
-		panel.add(lblNewLabel);
-
-		retryCode = new JButton(" Retry ");
-		retryCode.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		retryCode.setForeground(new Color(0, 168, 222));
-		retryCode.setIcon(new ImageIcon("/interface_graphique/reload.png"));
-		retryCode.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		retryCode.setBounds(23, 339, 195, 57);
-		panel.add(retryCode);
-		retryCode.addActionListener(this);
-
-		WrongInput_Exit = new JButton("Exit ");
-		WrongInput_Exit.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-		WrongInput_Exit.setForeground(new Color(0, 168, 222));
-		WrongInput_Exit.setIcon(new ImageIcon("/interface_graphique/exit.png"));
-		WrongInput_Exit.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		WrongInput_Exit.setBounds(296, 339, 160, 57);
-		panel.add(WrongInput_Exit);
-		WrongInput_Exit.addActionListener(this);
-
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("/interface_graphique/Cash.jpg"));
-		lblNewLabel_1.setBounds(0, 0, 500, 500);
-		panel.add(lblNewLabel_1);
-
-		panel.setVisible(true);
-		frmMyBank.add(panel);
-		frmMyBank.setContentPane(panel);
-
-		frmMyBank.validate();
-		frmMyBank.repaint();
-	}
-	public void WrongCode() {
-		JPanel panel = new JPanel(new GridBagLayout());
-		panel.setBackground(Color.WHITE);
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.insets = new Insets(10, 10, 10, 10);
-		gbc.fill = GridBagConstraints.HORIZONTAL;
-
-		// Title label
-		JLabel lblTitle = new JLabel("Wrong Code PIN!", SwingConstants.CENTER);
-		lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblTitle.setForeground(new Color(4, 109, 181));
-		lblTitle.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/alert-octagon.png")));
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setOpaque(true);
+		lblNewLabel.setBackground(new Color(208, 232, 252));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/alert-octagon.png"))); // Corrected image path
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.gridwidth = 2;
-		panel.add(lblTitle, gbc);
+		innerPanel.add(lblNewLabel, gbc);
 
-		// Retry button
-		Retry_Wrong_Code = new JButton("Retry");
-		Retry_Wrong_Code.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		Retry_Wrong_Code.setForeground(new Color(0, 168, 222));
-		Retry_Wrong_Code.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/reload.png")));
-		Retry_Wrong_Code.addActionListener(this);
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.gridwidth = 1;
-		panel.add(Retry_Wrong_Code, gbc);
+	    // Retry button
+	    Retry_Wrong_Code = new JButton("Retry");
+	    Retry_Wrong_Code.setFont(new Font("Tahoma", Font.PLAIN, 25));
+	    Retry_Wrong_Code.setForeground(new Color(0, 168, 222));
+	    Retry_Wrong_Code.setBackground(Color.WHITE);
+	    Retry_Wrong_Code.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/reload.png")));
+	    Retry_Wrong_Code.addActionListener(this);
+	    gbc.gridx = 0;
+	    gbc.gridy = 1;
+	    gbc.gridwidth = 1; // Single column
+	    innerPanel.add(Retry_Wrong_Code, gbc);
 
-		// Exit button
-		Exit_Wrong_Code = new JButton("Exit");
-		Exit_Wrong_Code.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		Exit_Wrong_Code.setForeground(Color.WHITE);
-		Exit_Wrong_Code.setBackground(new Color(220, 53, 69));
-		Exit_Wrong_Code.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/exit.png")));
-		Exit_Wrong_Code.addActionListener(this);
-		gbc.gridx = 1;
-		gbc.gridy = 1;
-		panel.add(Exit_Wrong_Code, gbc);
+	    // Exit button
+	    Exit_Wrong_Code = new JButton("Exit");
+	    Exit_Wrong_Code.setFont(new Font("Tahoma", Font.PLAIN, 25));
+	    Exit_Wrong_Code.setForeground(Color.WHITE);
+	    Exit_Wrong_Code.setBackground(new Color(220, 53, 69)); // Red background
+	    Exit_Wrong_Code.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/exit.png")));
+	    Exit_Wrong_Code.addActionListener(this);
+	    gbc.gridx = 1;
+	    gbc.gridy = 1;
+	    innerPanel.add(Exit_Wrong_Code, gbc);
 
-		// Background image
-		JLabel background = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/Cash.jpg")));
-		frmMyBank.setContentPane(background);
-		background.setLayout(new BorderLayout());
-		background.add(panel, BorderLayout.CENTER);
-		panel.setVisible(true);
-		frmMyBank.add(panel);
-		frmMyBank.setContentPane(panel);
+	    // Background image
+	    JLabel background = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/background2.jpg")));
+	    background.setLayout(new BorderLayout()); // Allow adding innerPanel centrally
+	    background.add(innerPanel, BorderLayout.CENTER);
 
-		frmMyBank.validate();
-		frmMyBank.repaint();
+	    // Setting the main panel and refreshing the frame
+	    frmMyBank.setContentPane(background);
+	    frmMyBank.validate();
+	    frmMyBank.repaint();
 	}
+
+	public void WrongCode() {
+	    // Main panel with BorderLayout
+	    JPanel panel = new JPanel(new BorderLayout());
+	    panel.setBackground(Color.WHITE);
+
+	    // Inner panel for content alignment using GridBagLayout
+	    JPanel innerPanel = new JPanel(new GridBagLayout());
+	    innerPanel.setOpaque(false); // Transparent for background visibility
+	    GridBagConstraints gbc = new GridBagConstraints();
+	    gbc.insets = new Insets(10, 10, 10, 10);
+	    gbc.fill = GridBagConstraints.HORIZONTAL;
+
+	    // Title label for error message
+		JLabel lblNewLabel = new JLabel("Wrong Code PIN!");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setOpaque(true);
+		lblNewLabel.setBackground(new Color(208, 232, 252));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/alert-octagon.png"))); // Corrected image path
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 2;
+		innerPanel.add(lblNewLabel, gbc);
+
+	    // Retry button
+	    Retry_Wrong_Code = new JButton("Retry");
+	    Retry_Wrong_Code.setFont(new Font("Tahoma", Font.PLAIN, 25));
+	    Retry_Wrong_Code.setForeground(new Color(0, 168, 222));
+	    Retry_Wrong_Code.setBackground(Color.WHITE);
+	    Retry_Wrong_Code.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/reload.png")));
+	    Retry_Wrong_Code.addActionListener(this);
+	    gbc.gridx = 0;
+	    gbc.gridy = 1;
+	    gbc.gridwidth = 1; // Single column
+	    innerPanel.add(Retry_Wrong_Code, gbc);
+
+	    // Exit button
+	    Exit_Wrong_Code = new JButton("Exit");
+	    Exit_Wrong_Code.setFont(new Font("Tahoma", Font.PLAIN, 25));
+	    Exit_Wrong_Code.setForeground(Color.WHITE);
+	    Exit_Wrong_Code.setBackground(new Color(220, 53, 69)); // Red background
+	    Exit_Wrong_Code.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/exit.png")));
+	    Exit_Wrong_Code.addActionListener(this);
+	    gbc.gridx = 1;
+	    gbc.gridy = 1;
+	    innerPanel.add(Exit_Wrong_Code, gbc);
+
+	    // Background image
+	    JLabel background = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/background2.jpg")));
+	    background.setLayout(new BorderLayout()); // Allow adding innerPanel centrally
+	    background.add(innerPanel, BorderLayout.CENTER);
+
+	    // Setting the main panel and refreshing the frame
+	    frmMyBank.setContentPane(background);
+	    frmMyBank.validate();
+	    frmMyBank.repaint();
+	}
+
 
 
 	public void Retrivemoney() {
@@ -682,57 +721,67 @@ public class MAIN implements ActionListener{
 		frmMyBank.validate();
 		frmMyBank.repaint();
 	}
+	
 	public void WrongInputRetrieve() {
-		JPanel panel = new JPanel(new BorderLayout());
-		panel.setBackground(Color.WHITE);
+	    // Main panel with BorderLayout
+	    JPanel panel = new JPanel(new BorderLayout());
+	    panel.setBackground(Color.WHITE);
 
-		// Inner panel with GridBagLayout for alignment
-		JPanel innerPanel = new JPanel(new GridBagLayout());
-		innerPanel.setOpaque(false); // Make the panel transparent for background visibility
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.insets = new Insets(10, 10, 10, 10);
-		gbc.fill = GridBagConstraints.HORIZONTAL;
+	    // Inner panel for content alignment using GridBagLayout
+	    JPanel innerPanel = new JPanel(new GridBagLayout());
+	    innerPanel.setOpaque(false); // Transparent for background visibility
+	    GridBagConstraints gbc = new GridBagConstraints();
+	    gbc.insets = new Insets(10, 10, 10, 10);
+	    gbc.fill = GridBagConstraints.HORIZONTAL;
 
-		// Label for wrong input message
+	    // Label panel for error message with border-like background
 		JLabel lblNewLabel = new JLabel("Wrong Input!");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 33));
-		lblNewLabel.setForeground(new Color(4, 109, 181));
-		lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/x-circle.png"))); // Corrected image path
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setOpaque(true);
+		lblNewLabel.setBackground(new Color(208, 232, 252));
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/alert-octagon.png"))); // Corrected image path
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.gridwidth = 2;
 		innerPanel.add(lblNewLabel, gbc);
 
-		// Retry button
-		retry_eneter_amount = new JButton("Retry");
-		retry_eneter_amount.setForeground(new Color(0, 168, 222));
-		retry_eneter_amount.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/reload.png"))); // Corrected image path
-		retry_eneter_amount.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		retry_eneter_amount.addActionListener(this);
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		innerPanel.add(retry_eneter_amount, gbc);
 
-		// Exit button
-		WrongInput_Exit = new JButton("Exit");
-		WrongInput_Exit.setForeground(new Color(0, 168, 222));
-		WrongInput_Exit.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/exit.png"))); // Corrected image path
-		WrongInput_Exit.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		WrongInput_Exit.addActionListener(this);
-		gbc.gridx = 1;
-		gbc.gridy = 1;
-		innerPanel.add(WrongInput_Exit, gbc);
+	    // Retry button
+	    retry_eneter_amount = new JButton("Retry");
+	    retry_eneter_amount.setFont(new Font("Tahoma", Font.PLAIN, 25));
+	    retry_eneter_amount.setForeground(new Color(0, 168, 222));
+	    retry_eneter_amount.setBackground(Color.WHITE);
+	    retry_eneter_amount.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/reload.png")));
+	    retry_eneter_amount.addActionListener(this);
+	    gbc.gridx = 0;
+	    gbc.gridy = 1;
+	    gbc.gridwidth = 1; // Single column
+	    innerPanel.add(retry_eneter_amount, gbc);
 
-		// Background image
-		JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/background2.jpg"))); // Corrected image path
-		panel.add(backgroundLabel, BorderLayout.CENTER);
-		backgroundLabel.setLayout(new BorderLayout()); // Set layout to BorderLayout for innerPanel positioning
-		backgroundLabel.add(innerPanel, BorderLayout.CENTER);
+	    // Exit button
+	    WrongInput_Exit = new JButton("Exit");
+	    WrongInput_Exit.setFont(new Font("Tahoma", Font.PLAIN, 25));
+	    WrongInput_Exit.setForeground(Color.WHITE);
+	    WrongInput_Exit.setBackground(new Color(220, 53, 69)); // Red background
+	    WrongInput_Exit.setIcon(new ImageIcon(getClass().getResource("/interface_graphique/exit.png")));
+	    WrongInput_Exit.addActionListener(this);
+	    gbc.gridx = 1;
+	    gbc.gridy = 1;
+	    innerPanel.add(WrongInput_Exit, gbc);
 
-		frmMyBank.setContentPane(panel);
-		frmMyBank.validate();
-		frmMyBank.repaint();
+	    // Background image
+	    JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/background2.jpg"))); // Corrected image path
+	    panel.add(backgroundLabel, BorderLayout.CENTER);
+	    backgroundLabel.setLayout(new BorderLayout()); // Set layout to BorderLayout for innerPanel positioning
+	    backgroundLabel.add(innerPanel, BorderLayout.CENTER);
+
+	    // Setting the main panel and refreshing the frame
+	    frmMyBank.setContentPane(panel);
+	    frmMyBank.validate();
+	    frmMyBank.repaint();
 	}
+
 
 	public void Cashdeposit() {
 		JPanel panel = new JPanel(new BorderLayout());
@@ -999,7 +1048,7 @@ public class MAIN implements ActionListener{
 		contentPanel.add(exit, gbc);
 
 		// Background image
-		JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/Cash.jpg"))); // Adjusted path
+		JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/background1.jpg"))); // Adjusted path
 		backgroundLabel.setLayout(new BorderLayout());
 		backgroundLabel.add(contentPanel, BorderLayout.CENTER);
 
@@ -1273,7 +1322,7 @@ public class MAIN implements ActionListener{
 		contentPanel.add(exit, gbc);
 
 		// Background image
-		JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/CashewBank1.png"))); // Adjusted path
+		JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/background1.jpg"))); // Adjusted path
 		backgroundLabel.setLayout(new BorderLayout());
 		backgroundLabel.add(contentPanel, BorderLayout.CENTER);
 
@@ -1335,7 +1384,7 @@ public class MAIN implements ActionListener{
 		contentPanel.add(exit, gbc);
 
 		// Background image
-		JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/Cash.jpg"))); // Adjusted path
+		JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/background2.jpg"))); // Adjusted path
 		backgroundLabel.setLayout(new BorderLayout());
 		backgroundLabel.add(contentPanel, BorderLayout.CENTER);
 
@@ -1396,7 +1445,7 @@ public class MAIN implements ActionListener{
 		contentPanel.add(exit, gbc);
 
 		// Background image
-		JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/CashewBank1.png"))); // Corrected path
+		JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/background1.jpg"))); // Corrected path
 		backgroundLabel.setLayout(new BorderLayout());
 		backgroundLabel.add(contentPanel, BorderLayout.CENTER);
 
@@ -1454,7 +1503,7 @@ public class MAIN implements ActionListener{
 		innerPanel.add(exit, gbc);
 
 		// Background image
-		JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/CashewBank1.png"))); // Corrected path
+		JLabel backgroundLabel = new JLabel(new ImageIcon(getClass().getResource("/interface_graphique/background1.jpg"))); // Corrected path
 		panel.add(backgroundLabel, BorderLayout.CENTER);
 		backgroundLabel.setLayout(new BorderLayout()); // Allow layout on the background
 		backgroundLabel.add(innerPanel, BorderLayout.CENTER);
