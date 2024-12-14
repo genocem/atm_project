@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="java_card_kit-2_2_2">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../../../../../../../JCDK/java_card_kit-2_2_2-windows/java_card_kit-2_2_2" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="file://$PROJECT_DIR$/../../../../../../../../JCDK/java_card_kit-2_2_2-windows/java_card_kit-2_2_2/ant-tasks/docs/html/javadocs/api" />
+      <root url="file://$PROJECT_DIR$/../../../../../../../../JCDK/java_card_kit-2_2_2-windows/java_card_kit-2_2_2/doc/en/dev-notes/html/apduiojavadocs" />
+      <root url="file://$PROJECT_DIR$/../../../../../../../../JCDK/java_card_kit-2_2_2-windows/java_card_kit-2_2_2/doc/en/guides/html/rmijavadocs" />
+      <root url="file://$PROJECT_DIR$/../../../../../../../../JCDK/java_card_kit-2_2_2-windows/java_card_kit-2_2_2/jc_specification/specs/api/html" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../../../../../../../../JCDK/java_card_kit-2_2_2-windows/java_card_kit-2_2_2/samples/src" />
+      <root url="file://$PROJECT_DIR$/../../../../../../../../JCDK/java_card_kit-2_2_2-windows/java_card_kit-2_2_2/samples/src_client" />
+      <root url="file://$PROJECT_DIR$/../../../../../../../../JCDK/java_card_kit-2_2_2-windows/java_card_kit-2_2_2" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../../../../../JCDK/java_card_kit-2_2_2-windows/java_card_kit-2_2_2" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../../../../../../../../JCDK/java_card_kit-2_2_2-windows/java_card_kit-2_2_2" recursive="false" type="SOURCES" />
+  </library>
+</component>
