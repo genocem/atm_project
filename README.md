@@ -24,7 +24,7 @@ This project is a simulation of an Automated Teller Machine (ATM) system, develo
 
 ## How to Run
 1. Open the project in your preferred IDE.
-2. Ensure the JavaCard JAR files (`apduio.jar` and `api.jar`) are added to the project dependencies.
+2. Ensure the JavaCard JAR files (`apduio.jar` and `api.jar`) are added to the project dependencies. (you might need to change the version of the java compiler to java 1.8 or lower)
 3. Use the `jcwde` command (available in the JavaCard Development Kit tools) to start the server-side component. For example:
    ```bash
    jcwde bank.app.txt
