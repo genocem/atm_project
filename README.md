@@ -28,3 +28,4 @@ This project is a simulation of an Automated Teller Machine (ATM) system, develo
 3. Use the `jcwde` command (available in the JavaCard Development Kit tools) to start the server-side component. For example:
    ```bash
    jcwde bank.app.txt
+4. Go back to the project in your IDE and run the Main class to start the client-side application.
